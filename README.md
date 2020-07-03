@@ -1,1 +1,3 @@
 # simpleist
+
+init with allure
