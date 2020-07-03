@@ -1,6 +1,7 @@
 package com.example;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.Tag;
@@ -21,10 +22,16 @@ public class MainTest {
 
     @Test
     @Description("desc3")
-    @Tag("tag")
+    @Tag("tag2")
     public void sum2() {
-        Assert.assertEquals(3, new Main().sum(1, 1));
-//        Allure.addAttachment("RQ", "111111111111111111111111");
-//        Allure.addAttachment("RS", "222222222222222222222222");
+        Assert.assertEquals(3, new Main().sum(2, 1));
+        someAttachment("dome method param");
     }
+
+    @Attachment(value = "Запрос {tagName}")
+    private String someAttachment(String tagName) {
+        return "attachment from method WITH param: " + tagName;
+    }
+
+
 }
